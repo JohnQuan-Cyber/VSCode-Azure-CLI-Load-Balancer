@@ -1,3 +1,16 @@
+# Deploying Load Balancers and verifying the failover test
+
+**Prerequisite**
+
+Azure Account (Student Account is preferable to learn)
+Visual Studio Code
+AZ CLI
+Understanding in the ARM and Bicep Template Files
+Bicep Files (In this repository)
+
+
+# Steps
+
 **Step 1 - Set the parameters to shorten the commands**
 
 Make sure to sign into the Azure Portal with the commnad az login.
