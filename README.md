@@ -29,7 +29,7 @@ Deploy the resource group with the command below
 **Step 3 - Deployment of resources**
 
 Deploy the Virtual Network, Network Security Group, Virtual Machines, Public IP and Load Balancer into the resource group
-*Note - You will be prompt to input a password for the Virtual Machines. The work around if you want to by passit while still having a password is adding the "--parameters adminPassword='(create a password)' "
+*Note - You will be prompt to input a password for the Virtual Machines. The work around if you want to by passit while still having a password is adding the following to the end of the virtual machine deployment line: " --parameters adminPassword='(create a password)' "
 
 * az deployment group create --resource-group $grp --template-file .\LoadBVNet.bicep
 * az deployment group create --resource-group $grp --template-file .\LoadBNSG.bicep
