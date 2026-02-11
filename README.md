@@ -26,33 +26,19 @@ Deploy the resource group with the command below
 * az group create --resource-group $grp --location $loc
 
 
-**Step 3 - Use these commands to deploy the Virtual Network and Network Security Group**
+**Step 3 - Deployment of resources**
 
-Deploy the Virtual Network and the Network Security Group into the resource group
+Deploy the Virtual Network, Network Security Group, Virtual Machines, Public IP and Load Balancer into the resource group
 
 * az deployment group create --resource-group $grp --template-file .\LoadBVNet.bicep
-*  az deployment group create --resource-group $grp --template-file .\LoadBNSG.bicep
-
-
-**Step 4 - Use this command to check if there resources deployed in the resource group. We are checking to see if there is already Virtual Machines**
-
-Do a pre-flight check just to make sure none of the templates have been deployed
-
-* az deployment group what-if --resource-group $grp --template-file .\LoadBVM.bicep
-* az deployment group what-if --resource-group $grp --template-file .\LoadBVM2.bicep
-* az deployment group what-if --resource-group $grp --template-file .\LoadBVMJump.bicep
-
-** Step 5 - Deploy three Virtual Machines. VM1, VM2, WMJUMP, LBPublicIP, and Load Balancer**
-
-Deploy the following resources into the resource group
-
+* az deployment group create --resource-group $grp --template-file .\LoadBNSG.bicep
 * az deployment group create --resource-group $grp --template-file .\LoadBVM.bicep
 * az deployment group create --resource-group $grp --template-file .\LoadBVM2.bicep
 * az deployment group create --resource-group $grp --template-file .\LoadBVMJump.bicep
 * az deployment group create --resource-group $grp --template-file .\LB-PublicIP.bicep
 * az deployment group create --resource-group $grp --template-file .\LoadBalancer.bicep
 
-**Step 6a - Once the Virtual Machines are deployed. Check to see if the following are deployed:**
+**Step 4 - Once the Virtual Machines are deployed. Check to see if the following are deployed:**
 
 Verify you have deployed the following
 
@@ -63,7 +49,7 @@ Verify you have deployed the following
 5. Load Balancer
 6. LB pIP
 
-**Step 6b - Install Apache2**
+**Step 5 - Install Apache2**
 
 Now we start installing Apache2 into the load balancer VM1 and VM2. We want to SSH into the Jump VM form the local computer through the command prompt. From there we can SSH into each of the VMs and insert the following commands:
 
@@ -89,7 +75,7 @@ Now we start installing Apache2 into the load balancer VM1 and VM2. We want to S
 7. sudo systemctl status apache2  ( it should be running  )
 8. exit
 
-**Step6c - Verify Fail-Over**
+**Step 6 - Verify Fail-Over**
 
 Obtain the public IP from your load balancer and enter into your local browser with the following:
 
